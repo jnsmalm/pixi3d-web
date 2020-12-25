@@ -1,0 +1,52 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+  <title>The 3D renderer for PixiJS</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap">
+  <link rel="stylesheet" href="style.css" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+    crossorigin="anonymous" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body>
+  <section class="title-section">
+    <h1>Pixi3D</h1>
+    <h2>The 3D renderer for PixiJS. Seamless integration with 2D applications.</h2>
+  </section>
+
+  <section class="button-section">
+    <a href="https://github.com/jnsmalm/pixi3d#getting-started">GET STARTED</a>
+    <a href="https://api.pixi3d.org">API</a>
+    <a href="https://github.com/jnsmalm/pixi3d">GITHUB</a>
+  </section>
+
+  <section class="demo-section">
+    <div id="dancing-stormtrooper" class="demo-thumb">
+      <img src="images/dancing_stormtrooper.png" />
+      <p>The dancing stormtrooper demo</p>
+    </div>
+  </section>
+
+  <div id="demo-overlay">
+    <canvas id="demo-canvas"></canvas>
+    <div id="demo-close" class="overlay-close">
+      <i class="fas fa-times fa-2x"></i>
+    </div>
+    <div id="demo-license" class="demo-license"></div>
+  </div>
+
+  <div id="load-overlay">
+    <i class="fas fa-sync fa-spin fa-4x" style="color: #ffffff"></i>
+  </div>
+
+  <script src="lib/pixi.min.js"></script>
+  <script src="lib/pixi3d.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
