@@ -8,25 +8,31 @@ let app = new PIXI.Application({
   backgroundColor: 0xff0000, antialias: true, view: document.getElementById("demo-canvas"), resizeTo: window
 })
 
-let canvas = new Overlay("demo-overlay")
+let ui = new Overlay("ui-overlay")
 let loader = new Overlay("load-overlay")
 
-let thumbSelected = (demo) => {
+let demoHide = (demo) => {
+  document.body.classList.remove("disable-scrolling")
+  ui.hide(() => {
+    document.getElementById("demo-canvas").classList.remove("show")
+    demo.hide()
+  })
+}
+
+let demoShow = (demo) => {
+  document.body.classList.add("disable-scrolling")
   document.onkeypress = (evt) => {
     if (evt.key === "Escape") {
-      canvas.hide(() => {
-        demo.hide()
-      })
+      demoHide(demo)
     }
   }
-  document.getElementById("demo-close").onclick = () => {
-    canvas.hide(() => {
-      demo.hide()
-    })
+  document.getElementById("ui-close").onclick = () => {
+    demoHide(demo)
   }
   loader.show(() => {
     demo.load(() => {
-      canvas.show(() => {
+      document.getElementById("demo-canvas").classList.add("show")
+      ui.show(() => {
         loader.hide()
       })
     })
@@ -34,4 +40,4 @@ let thumbSelected = (demo) => {
 }
 
 let dancingStormtrooper = new DemoThumb("dancing-stormtrooper",
-  new DancingStormtrooper(app), "License: <a href='https://creativecommons.org/licenses/by/4.0/'>CC Attribution</a>. <a href='https://sketchfab.com/3d-models/dancing-stormtrooper-12bd08d66fe04a84be446e583d6663ac'>Model created by StrykerDoesAnimation.</a>", thumbSelected)
+  new DancingStormtrooper(app), "<a href='https://sketchfab.com/3d-models/dancing-stormtrooper-12bd08d66fe04a84be446e583d6663ac'>Model created by StrykerDoesAnimation.</a> License: <a href='https://creativecommons.org/licenses/by/4.0/'>CC Attribution</a>.", demoShow)

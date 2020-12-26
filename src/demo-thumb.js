@@ -4,7 +4,7 @@ export class DemoThumb {
     this.element = document.getElementById(id)
     this.element.addEventListener("click", () => {
       selected(demo)
-      document.getElementById("demo-license").innerHTML = license
+      document.getElementById("ui-license").innerHTML = license
     })
   }
 

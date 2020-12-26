@@ -47,7 +47,7 @@ export class DancingStormtrooper extends Demo {
     this.model.animations[0].play()
 
     this.shadowCastingLight = new PIXI3D.ShadowCastingLight(
-      this.app.renderer, this.dirLight, 512, 15, 1, PIXI3D.ShadowQuality.medium)
+      this.app.renderer, this.dirLight, 1024, 15, 1, PIXI3D.ShadowQuality.medium)
 
     let pipeline = PIXI3D.StandardPipeline.from(this.app.renderer)
     pipeline.shadowRenderPass.lights.push(this.shadowCastingLight)
