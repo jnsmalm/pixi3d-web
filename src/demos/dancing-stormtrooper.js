@@ -50,8 +50,7 @@ export class DancingStormtrooper extends Demo {
       this.app.renderer, this.dirLight, 1024, 15, 1, PIXI3D.ShadowQuality.medium)
 
     let pipeline = PIXI3D.StandardPipeline.from(this.app.renderer)
-    pipeline.shadowRenderPass.lights.push(this.shadowCastingLight)
-    pipeline.shadowRenderPass.enableShadows(this.model, this.shadowCastingLight)
+    pipeline.enableShadows(this.model, this.shadowCastingLight)
   }
 
   hide() {
@@ -60,7 +59,7 @@ export class DancingStormtrooper extends Demo {
       mesh.destroy()
     })
     let pipeline = PIXI3D.StandardPipeline.from(this.app.renderer)
-    pipeline.shadowRenderPass.lights = []
+    pipeline.shadowPass.removeShadowCastingLight(this.shadowCastingLight)
     this.app.stage.removeChildren()
   }
 }
