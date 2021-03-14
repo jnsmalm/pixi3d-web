@@ -122,7 +122,23 @@ canvas {
 
 .overlay-show {
   opacity: 1;
-  pointer-events: all;
+}
+
+@keyframes hand-pointer {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-25px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.hand-pointer {
+  color: #ffffff;
+  animation: hand-pointer 1s ease-in-out 0s infinite normal none;
 }
 
 #ui-close {
@@ -152,6 +168,7 @@ canvas {
   margin-right: auto;
   padding: 0 10px 0 10px;
   position: fixed;
+  pointer-events: visible;
   bottom: 10px;
   text-align: center;
   font-size: 14px;

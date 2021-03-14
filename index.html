@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-  <title>The 3D renderer for PixiJS</title>
+  <title>Pixi3D: The 3D renderer for PixiJS. Seamless integration with 2D applications.</title>
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap">
   <link rel="stylesheet" href="style.css" type="text/css">
@@ -26,6 +26,10 @@
   </section>
 
   <section class="demo-section">
+    <div id="shattering-engel" class="demo-thumb">
+      <img src="images/shattering_engel.png" />
+      <p>Shatter the angel demo</p>
+    </div>
     <div id="dancing-stormtrooper" class="demo-thumb">
       <img src="images/dancing_stormtrooper.png" />
       <p>The dancing stormtrooper demo</p>
@@ -38,11 +42,12 @@
     <div id="ui-close">
       <i class="fas fa-times fa-2x"></i>
     </div>
+    <div id="ui-content"></div>
     <div id="ui-license"></div>
   </div>
-  
+
   <div id="load-overlay">
-    <i class="fas fa-sync fa-spin fa-4x" style="color: #ffffff"></i>
+    <i class="fas fa-sync fa-spin fa-5x" style="color: #ffffff"></i>
   </div>
 
   <script src="lib/pixi.min.js"></script>
