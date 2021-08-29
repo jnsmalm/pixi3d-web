@@ -12,10 +12,10 @@ export class ShatteringEngel extends Demo {
     this.app.renderer.backgroundColor = 0x87bbc9
 
     this.ambientLight = Object.assign(new PIXI3D.Light(), {
-      type: "ambient", intensity: 1, color: [0.8, 0.8, 1]
+      type: "ambient", intensity: 1, color: new PIXI3D.Color(0.8, 0.8, 1)
     })
     this.spotLight = Object.assign(new PIXI3D.Light(), {
-      type: "spot", intensity: 100, x: 0, y: 2, z: 5, color: [1, 1, 1], range: 30
+      type: "spot", intensity: 100, x: 0, y: 2, z: 5, color: new PIXI3D.Color(1, 1, 1), range: 30
     })
     this.spotLight.rotationQuaternion.setEulerAngles(0, 180, 0)
 

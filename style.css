@@ -1,6 +1,9 @@
 body {
   background-color: #cccccc;
   font-family: 'Quicksand', sans-serif;
+  min-height: 100vh;
+  /* mobile viewport bug fix */
+  min-height: -webkit-fill-available;
 }
 
 body.disable-scrolling {
@@ -178,4 +181,87 @@ canvas {
 
 #load-overlay {
   background: rgba(50, 50, 50);
+}
+
+/* Pink cube */
+
+.ui {
+  width: 100%;
+  margin-bottom: 3vh;
+  position: fixed;
+  bottom: 0px;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  opacity: 0;
+  transition: all 1s;
+}
+
+.show-ui {
+  opacity: 0.1;
+  transition: all 1s;
+}
+
+.ui .button {
+  cursor: pointer;
+  width: 10vh;
+  height: 10vh;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.ui .button:active {
+  transform: scale(0.9);
+}
+
+.ui .button:nth-child(1) {
+  background-image: url("assets/ui/arrow-circle-up-solid.svg");
+  margin-bottom: 1vh;
+}
+
+.ui .button:nth-child(3) {
+  background-image: url("assets/ui/arrow-circle-left-solid.svg");
+  margin-right: 1vh;
+}
+
+.ui .button:nth-child(4) {
+  background-image: url("assets/ui/arrow-circle-down-solid.svg");
+}
+
+.ui .button:nth-child(5) {
+  background-image: url("assets/ui/arrow-circle-right-solid.svg");
+  margin-left: 1vh;
+}
+
+.ui hr {
+  flex-basis: 100%; 
+  height: 0; 
+  margin: 0; 
+  border: 0;
+}
+
+.reload {
+  width: 6vh;
+  height: 6vh;
+  position: fixed;
+  top: 0px;
+  background-image: url("assets/ui/undo-alt-solid.svg");
+  margin-top: 2vh;
+  margin-left: 1vh;
+  opacity: 0;
+  transition: opacity 1s;
+  cursor: pointer;
+  z-index: 100;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.reload.show {
+  opacity: 0.1;
+  transition: opacity 1s;
+}
+
+.reload:active {
+  transform: scale(0.9);
 }

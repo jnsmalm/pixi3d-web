@@ -6,6 +6,15 @@ module.exports = {
     contentBase: path.join(__dirname, "."),
     port: 3000
   },
+  module: {
+    rules: [
+      {
+        test: /\.(glsl|vert|frag)$/,
+        use: "webpack-glsl-loader",
+        exclude: /node_modules/
+      }
+    ]
+  },
   output: {
     path: path.resolve(__dirname, "."),
     filename: "app.js"

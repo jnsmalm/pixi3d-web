@@ -19,8 +19,8 @@ export class DancingStormtrooper extends Demo {
     this.dirLight.rotationQuaternion.setEulerAngles(10, 180, 0)
 
     let imageBasedLighting = new PIXI3D.ImageBasedLighting(
-      resources["environments/photo_studio/diffuse.cubemap"].texture,
-      resources["environments/photo_studio/specular.cubemap"].texture)
+      resources["environments/photo_studio/diffuse.cubemap"].cubemap,
+      resources["environments/photo_studio/specular.cubemap"].cubemap)
 
     this.lightingEnvironment = new PIXI3D.LightingEnvironment(
       this.app.renderer, imageBasedLighting)
