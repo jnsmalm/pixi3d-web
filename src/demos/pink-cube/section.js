@@ -26,7 +26,7 @@ export class Section {
   }
 
   get gates() {
-    return this._gates.map(p => ({ x: p.x, y: p.y, z: p.z }))
+    return this._gates.map(p => ({ x: p.x, y: p.y, z: p.z, angle: p.angle }))
   }
 
   get blocks() {
