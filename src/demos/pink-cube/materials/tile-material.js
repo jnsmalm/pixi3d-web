@@ -3,7 +3,7 @@ export class TileMaterial extends PIXI3D.Material {
     super()
 
     this.color = new PIXI3D.Color()
-    this.color2 = new PIXI3D.Color(1, 176 / 255, 254 / 255)
+    this.color2 = new PIXI3D.Color(1, 180 / 255, 248 / 255)
     this.alpha = 1
   }
 

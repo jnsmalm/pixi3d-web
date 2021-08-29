@@ -16,7 +16,7 @@ export class PinkCube extends Demo {
   }
 
   show(resources) {
-    this.app.renderer.backgroundColor = 0xFFB0FE
+    this.app.renderer.backgroundColor = 0xFFB4F8
 
     this.lightingEnvironment =
       new PIXI3D.LightingEnvironment(this.app.renderer, new PIXI3D.ImageBasedLighting(PIXI3D.Cubemap.fromColors(
