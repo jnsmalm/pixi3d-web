@@ -32,6 +32,8 @@ canvas {
   top: 0;
   display: none;
   z-index: 1;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 .show {
@@ -198,6 +200,9 @@ canvas {
   flex-wrap: wrap;
   opacity: 0;
   transition: all 1s;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 .show-ui {
@@ -209,7 +214,6 @@ canvas {
   cursor: pointer;
   width: 10vh;
   height: 10vh;
-  -webkit-tap-highlight-color: transparent;
 }
 
 .ui .button:active {
@@ -255,6 +259,8 @@ canvas {
   cursor: pointer;
   z-index: 100;
   -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 .reload.show {
