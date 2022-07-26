@@ -10,6 +10,7 @@ export class Player extends PIXI3D.Container3D {
     this._mesh.material.metallic = 0
     this._mesh.material.roughness = 0.5
     this._mesh.material.baseColor = new PIXI3D.Color(0.8, 0.2, 0.6)
+    this._mesh.material.exposure = 3
     this._mesh.scale.set(0.5)
 
     this._model = this.addChild(PIXI3D.Model.from(resources["assets/pink-cube/crash.glb"].gltf))
@@ -20,6 +21,7 @@ export class Player extends PIXI3D.Container3D {
       mesh.material.metallic = 0
       mesh.material.roughness = 0.5
       mesh.material.baseColor = new PIXI3D.Color(0.8, 0.2, 0.6)
+      mesh.material.exposure = 3
     })
   }
 
@@ -126,7 +128,7 @@ export class Player extends PIXI3D.Container3D {
         }
         PIXI3D.Mat4.translate(matrix, [dir.x, 1, -dir.z], matrix)
         PIXI3D.Mat4.multiply(transformMatrix, matrix, matrix)
-        this._mesh.transform.setFromMatrix(new PIXI3D.TransformMatrix(matrix))
+        this._mesh.transform.setFromMatrix(new PIXI3D.Matrix4(matrix))
         if (cameraTrack) {
           this._camera.track(this.worldPosition)
         }

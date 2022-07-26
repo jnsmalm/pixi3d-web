@@ -11,9 +11,6 @@ export class ShatteringEngel extends Demo {
 
     this.app.renderer.backgroundColor = 0x87bbc9
 
-    this.ambientLight = Object.assign(new PIXI3D.Light(), {
-      type: "ambient", intensity: 1, color: new PIXI3D.Color(0.8, 0.8, 1)
-    })
     this.spotLight = Object.assign(new PIXI3D.Light(), {
       type: "spot", intensity: 100, x: 0, y: 2, z: 5, color: new PIXI3D.Color(1, 1, 1), range: 30
     })
@@ -22,7 +19,6 @@ export class ShatteringEngel extends Demo {
     this.lightingEnvironment = new PIXI3D.LightingEnvironment(
       this.app.renderer)
     this.lightingEnvironment.lights.push(this.spotLight)
-    this.lightingEnvironment.lights.push(this.ambientLight)
 
     this.camera = new PIXI3D.Camera(this.app.renderer)
     this.camera.rotationQuaternion.setEulerAngles(-10, 180, 0)
@@ -42,19 +38,19 @@ export class ShatteringEngel extends Demo {
         animation.play()
         animation.position = 0.63
       })
-      this.model1.visible = false
-      this.model2.visible = true
+      this.model1.scale.set(0)
+      this.model2.scale.set(1)
       document.getElementById("ui-content").innerHTML = ""
     })
     this.model1.meshes.forEach(mesh => {
       mesh.material.camera = this.camera
       mesh.material.lightingEnvironment = this.lightingEnvironment
-      mesh.material.exposure = 1
+      mesh.material.exposure = 1.2
     })
 
     this.model2 = this.container.addChild(PIXI3D.Model.from(
       resources["models/engel/engel2.gltf"].gltf))
-    this.model2.visible = false
+    this.model2.scale.set(0)
     this.model2.meshes.forEach(mesh => {
       mesh.material.camera = this.camera
       mesh.material.lightingEnvironment = this.lightingEnvironment
@@ -63,8 +59,8 @@ export class ShatteringEngel extends Demo {
     this.model2.animations.forEach(animation => {
       animation.speed = 1.5
       animation.on("complete", () => {
-        this.model1.visible = true
-        this.model2.visible = false
+        this.model1.scale.set(1)
+        this.model2.scale.set(0)
       })
     })
   }

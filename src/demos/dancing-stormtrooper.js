@@ -29,6 +29,17 @@ export class DancingStormtrooper extends Demo {
     this.camera = new PIXI3D.Camera(this.app.renderer)
     this.camera.rotationQuaternion.setEulerAngles(-10, 180, 0)
 
+    this.ticker = new PIXI.Ticker()
+    this.ticker.add(() => {
+      let aspectRatio = this.app.renderer.width / this.app.renderer.height
+      if (aspectRatio > 0.8) {
+        this.camera.fieldOfView = 60
+      } else {
+        this.camera.fieldOfView = 77
+      }
+    })
+    this.ticker.start()
+
     this.container = this.app.stage.addChild(new PIXI3D.Container3D())
 
     this.model = this.container.addChild(PIXI3D.Model.from(
@@ -40,25 +51,28 @@ export class DancingStormtrooper extends Demo {
     this.model.meshes.forEach((mesh) => {
       mesh.material.camera = this.camera
       mesh.material.lightingEnvironment = this.lightingEnvironment
-      mesh.material.exposure = 1
+      mesh.material.exposure = 1.1
     })
 
     this.model.animations[0].loop = true
     this.model.animations[0].play()
 
     this.shadowCastingLight = new PIXI3D.ShadowCastingLight(
-      this.app.renderer, this.dirLight, 1024, 15, 1, PIXI3D.ShadowQuality.medium)
+      this.app.renderer, this.dirLight, { shadowTextureSize: 1024, quality: PIXI3D.ShadowQuality.medium })
+    this.shadowCastingLight.softness = 1
+    this.shadowCastingLight.shadowArea = 25
 
-    let pipeline = PIXI3D.StandardPipeline.from(this.app.renderer)
+    let pipeline = this.app.renderer.plugins.pipeline
     pipeline.enableShadows(this.model, this.shadowCastingLight)
   }
 
   hide() {
+    let pipeline = this.app.renderer.plugins.pipeline
     this.shadowCastingLight.destroy()
     this.model.meshes.forEach((mesh) => {
       mesh.destroy()
     })
-    let pipeline = PIXI3D.StandardPipeline.from(this.app.renderer)
+    this.ticker.stop()
     pipeline.shadowPass.removeShadowCastingLight(this.shadowCastingLight)
     this.app.stage.removeChildren()
   }

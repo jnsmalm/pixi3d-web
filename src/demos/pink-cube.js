@@ -152,6 +152,7 @@ export class PinkCube extends Demo {
   }
 
   hide() {
+    PIXI3D.Camera.main.orthographic = false
     document.removeEventListener("keydown", this.onKeyDown)
     this.ui.remove()
     this.app.stage.removeChildren()

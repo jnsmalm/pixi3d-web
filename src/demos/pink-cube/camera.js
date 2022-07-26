@@ -6,9 +6,9 @@ export class Camera {
     this.drag = { x: 0.5, y: 0.01, z: 0.5 }
 
     this._control = new PIXI3D.CameraOrbitControl(view)
-    this._control.allowControl = false
     this._control.angles.set(25, -20)
     this._control.distance = 100
+    this._control.allowControl = false
 
     this._track = { x: 0, y: 0, z: 0 }
 
